@@ -39,8 +39,8 @@ class Controller_Uji extends Controller{
 
 	public function action_save()
 	{
-		$attributes = Arr::get($_POST, "attributes");
-		$class = 'Model_'.Arr::get($_POST, "class");
+		$attributes = Arr::get($_GET, "attributes");
+		$class = 'Model_'.Arr::get($_GET, "class");
 		$object = new $class($attributes);
 		$object->save();
 
@@ -48,10 +48,10 @@ class Controller_Uji extends Controller{
 
 	public function action_retrieve()
 	{
-		$condition = Arr::get($_POST, "column");
-		$operator = Arr::get($_POST, "operator");
-		$value = Arr::get($_POST, "value");
-		$active_class = Arr::get($_POST, "class");
+		$condition = Arr::get($_GET, "column");
+		$operator = Arr::get($_GET, "operator");
+		$value = Arr::get($_GET, "value");
+		$active_class = Arr::get($_GET, "class");
 		$class = 'Model_'.$active_class;
 
 
@@ -89,10 +89,10 @@ class Controller_Uji extends Controller{
 
 	public function action_delete()
 	{
-		$condition = Arr::get($_POST, "column");
-		$operator = Arr::get($_POST, "operator");
-		$value = Arr::get($_POST, "value");
-		$class = 'Model_'.Arr::get($_POST, "class");
+		$condition = Arr::get($_GET, "column");
+		$operator = Arr::get($_GET, "operator");
+		$value = Arr::get($_GET, "value");
+		$class = 'Model_'.Arr::get($_GET, "class");
 
 
 		$object = new $class();

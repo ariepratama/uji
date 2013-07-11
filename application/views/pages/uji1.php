@@ -65,7 +65,7 @@
 					        Create: function() {
 					        	// console.debug($("#dialog-form fieldset").serializeArray());
 						          $.ajax({
-										type: 'POST',
+										type: 'GET',
 										url: '/uji/index.php/uji/save',
 										async: false,
 										data: "class="+$(".header-text .active-nav").text()+"&attributes="+JSON.stringify($("#dialog-form fieldset").serializeArray()), 	
@@ -107,7 +107,7 @@
 					        Do: function() {
 					        	
 						          $.ajax({
-										type: 'POST',
+										type: 'GET',
 										url: '/uji/index.php/uji/'+operation,
 										async: false,
 										data: "class="+$(".header-text .active-nav").text()+"&"+$( "#condition-form" ).serialize(), 	
@@ -176,7 +176,7 @@
 					  //     buttons: {
 					  //       Delete: function() {
 						 //          $.ajax({
-							// 			type: 'POST',
+							// 			type: 'GET',
 							// 			url: '/uji/index.php/uji/delete',
 							// 			async: false,
 							// 			data: "class="+$(".header-text .active-nav").text()+"&"+$( "#delete-condition-form" ).serialize(), 	
@@ -210,7 +210,7 @@
 					  //     buttons: {
 					  //       Retrieve: function() {
 						 //          $.ajax({
-							// 			type: 'POST',
+							// 			type: 'GET',
 							// 			url: '/uji/index.php/uji/retrieve',
 							// 			async: false,
 							// 			data: "class="+$(".header-text .active-nav").text()+$( "#retrieve-condition-form" ).serialize(), 	
@@ -321,7 +321,7 @@
 		</div>
 
 		<div id="condition" title="Specify Condition for ">
-			<form id="condition-form" method="post">
+			<form id="condition-form" method="GET">
 				<fieldset>
 					<label for="column">Column</label>
 					</br>
@@ -409,7 +409,7 @@
 		    			?>
 			    					<h3><?php echo $object->get_primary_key_value();?></h3>
 			    					<div>
-			    						<form class="update-form" id="form-<?php echo $object->get_primary_key_value();?>" method="post">
+			    						<form class="update-form" id="form-<?php echo $object->get_primary_key_value();?>" method="GET">
 			    							<table>
 				    						<?php
 				    							$attributes = $object->get_object_attributes();

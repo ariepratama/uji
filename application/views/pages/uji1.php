@@ -18,7 +18,7 @@
 						var input = "<input type=text name="+key+" id="+key+" class=text ui-widget-content ui-corner-all />";
 						var lineBreak = "<br/>"
 					    
-						$("#create-form fieldset").append(label+input+lineBreak);
+						$("#create-form fieldset table").append("<tr>"+"<td>"+label+"</td>"+"<td>"+input+"</td>"+lineBreak+"</tr>");
 					}
 				}
 
@@ -316,6 +316,9 @@
     	<div id="dialog-form" title="Create new <?php echo $active_class;?>" >
 		  <form id="create-form">
 			  <fieldset>
+			  	<table>
+
+			  	</table>
 			  </fieldset>
 		  </form>
 		</div>
@@ -415,12 +418,16 @@
 				    							$attributes = $object->get_object_attributes();
 				    							foreach ($attributes as $attribute => $value)
 				    							{
+				    								// if (! is_null($value))
+				    								// {
 				    						?>
 					    						<tr>
 						    						<td><label for="<?php echo $attribute?>" class="object"><?php echo $attribute.': ';?></label></td>
-						    						<td><input type="text" name="<?php echo $attribute?>" value="<?php print_r($value);?>" /></td>
+						    						<td><input type="text" name="<?php echo $attribute?>" value="<?php if (! is_object($value)) print_r($value); else print_r($value->get_primary_key_value());?>" /></td>
+
 					    						</tr>
 				    						<?php 
+				    								// }
 				    							}
 				    						?>
 				    						</table>

@@ -15,6 +15,7 @@ class Model_MataKuliah extends PersistentObject{
 		$this->mahasiswa = array(new Model_Mahasiswa(), new Model_Mahasiswa());
 		$this->dosen = new Model_Dosen();
 		$this->waktu = new Model_Waktu();
+
 		parent::__construct();
 
 		$this->dosen = null;
@@ -35,6 +36,7 @@ class Model_MataKuliah extends PersistentObject{
 				{
 					$is_object = $meta->is_attribute_object($field);
 					$is_array = $meta->is_attribute_array($field);
+					
 					if (!  $is_object && ! $is_array)
 						$this->$field = $params->value;
 					else
@@ -51,10 +53,16 @@ class Model_MataKuliah extends PersistentObject{
 							$rel = $meta->get_attribute_rel_with($field);
 							if (! is_null($rel))
 							{
+								
+								$vals = explode(',', $params->$value);
+								print_r($vals);
 								$ar_temp = array();
-								$obj = new $rel();
-								$obj->set_pk_value($params->value);
-								$ar_temp[] = $obj; 
+								foreach($vals as $val)
+								{
+									$obj = new $rel();
+									$obj->set_pk_value($val);
+									$ar_temp[] = $obj; 
+								}
 								$this->$field = $ar_temp;
 								
 							}

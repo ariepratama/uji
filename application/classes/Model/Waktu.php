@@ -1,6 +1,7 @@
 <?php
 
 class Model_Waktu extends PersistentObject{
+	public $hari = "Senin";
 	public $start = "00.00";
 	public $end = "00.00";
 

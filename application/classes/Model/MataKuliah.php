@@ -5,6 +5,7 @@ class Model_MataKuliah extends PersistentObject{
 	public $nama = "nama";
 	public $mahasiswa;
 	public $dosen;
+	public $waktu;
 
 	public function __construct($attrs = null)
 	{
@@ -13,10 +14,12 @@ class Model_MataKuliah extends PersistentObject{
 		$this->_id_db_type = "varchar(32)";
 		$this->mahasiswa = array(new Model_Mahasiswa(), new Model_Mahasiswa());
 		$this->dosen = new Model_Dosen();
+		$this->waktu = new Model_Waktu();
 		parent::__construct();
 
 		$this->dosen = null;
 		$this->mahasiswa = null;
+		$this->waktu = null;
 
 		if ($attrs)
 		{
@@ -40,7 +43,8 @@ class Model_MataKuliah extends PersistentObject{
 						if ($is_object)
 						{
 							$this->$field = new $class_related();
-							$this->$field->where('_id', '=', $params->value)->retrieve();
+							$this->$field->set_pk_value($params->value);
+							// $this->$field->where('_id', '=', $params->value)->retrieve();
 						}
 						else if ($is_array)
 						{
@@ -48,7 +52,9 @@ class Model_MataKuliah extends PersistentObject{
 							if (! is_null($rel))
 							{
 								$ar_temp = array();
-								$ar_temp[] = $params->value; 
+								$obj = new $rel();
+								$obj->set_pk_value($params->value);
+								$ar_temp[] = $obj; 
 								$this->$field = $ar_temp;
 								
 							}

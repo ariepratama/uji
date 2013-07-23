@@ -165,3 +165,9 @@
 2013-07-11 12:18:13 --- CRITICAL: ErrorException [ 1 ]: Call to undefined method URL::base_url() ~ MODPATH\orm_beta\classes\Metadata\Instance.php [ 157 ] in :
 2013-07-11 12:18:13 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
 #1 {main} in :
+2013-07-11 16:23:29 --- CRITICAL: ErrorException [ 1 ]: Class 'Model_Mahasiswa1' not found ~ APPPATH\classes\Controller\Uji.php [ 16 ] in :
+2013-07-11 16:23:29 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in :
+2013-07-11 16:23:30 --- CRITICAL: ErrorException [ 1 ]: Class 'Model_Mahasiswa1' not found ~ APPPATH\classes\Controller\Uji.php [ 16 ] in :
+2013-07-11 16:23:30 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in :

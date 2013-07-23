@@ -2,7 +2,7 @@
 
 class Model_Ruangan extends PersistentObject{
 	public $nama = "0000";
-	// public $lantai = 1;
+	public $lantai = 1;
 
 	public function __construct($attrs = null)
 	{

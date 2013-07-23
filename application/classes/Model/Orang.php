@@ -5,7 +5,7 @@ abstract class Model_Orang extends PersistentObject{
 	public $nama = "nama";
 	protected $umur = 1;
 	public $jenis_kelamin = "laki";
-	protected $agama = "islam";
+	protected $agama = "agama";
 
 	public function __construct($attrs = null)
 	{

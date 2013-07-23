@@ -71,6 +71,7 @@
 										data: "class="+$(".header-text .active-nav").text()+"&attributes="+JSON.stringify($("#dialog-form fieldset").serializeArray()), 	
 										success: function(result){
 											console.debug("success");
+											console.debug(result);
 											$( "#message" ).html("success");
 											$( "#dialog-message" ).dialog( "open" );
 										},
@@ -155,6 +156,7 @@
 								async: false,
 								data: "class="+$(".header-text .active-nav").text()+"&attributes="+JSON.stringify($("#"+formId).serializeArray()), 	
 								success: function(result){
+									console.debug(result);
 									console.debug("success");
 									$( "#message" ).html("success");
 									$( "#dialog-message" ).dialog( "open" );

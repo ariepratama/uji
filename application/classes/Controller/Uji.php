@@ -76,7 +76,7 @@ class Controller_Uji extends Controller{
 				$id = $attribute["value"];
 		}
 		
-		
+		echo $id;
 		$class = 'Model_'.Arr::get($_GET, "class");
 		$object = new $class();
 		
@@ -85,6 +85,8 @@ class Controller_Uji extends Controller{
 
 		if ($object->is_retrieved())
 			$object->save();
+		
+		// print_r ($object);
 	}
 
 	public function action_delete()
